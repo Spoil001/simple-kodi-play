@@ -27,9 +27,13 @@ function parse_json {
 }
 
 
-
-ID='https://www.youtube.com/watch?v=DLzxrzFCyOs'
 ID=$1
+if [ "$ID" = "" ]
+then
+echo -e "provide an url next time\n"
+ID='https://vimeo.com/45196609'
+fi
+
 URL=$(youtube-dl "-g" "$ID");
 if [ $? -ne 0 ]
 then
