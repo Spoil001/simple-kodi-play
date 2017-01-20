@@ -33,10 +33,12 @@ ID=$1
 URL=$(youtube-dl "-g" "$ID");
 if [ $? -ne 0 ]
 then
+#fail on failure
 exit 1
 fi
 
 ID=$URL
+#sometimes youtube-dl returns multiple urls
 URL=($URL[0])
 
 #echo -n "$URL"
